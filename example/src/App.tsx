@@ -4,18 +4,22 @@ import './App.css'
 
 // @ts-ignore
 import DeroBridgeApi from 'dero-rpc-bridge-api'
+import React from 'react';
+import MyComponent from './components/MyComponent';
 
 
-enum ConnectionStatus {
+export enum ConnectionStatus {
   NotConnected = "not connected",
   Connected = "connected to the bridge!",
   Connecting = "connecting...",
   Failed = 'connection failed !'
 }
 
+export const DeroContext = React.createContext<DeroBridgeApi>(null);
+
 function App() {
   const [bridge, setBridge] = useState<DeroBridgeApi>()
-  const [status, setStatus] = useState<ConnectionStatus>()
+  const [status, setStatus] = useState<ConnectionStatus>(ConnectionStatus.NotConnected)
 
   const connect = useCallback(async () => {
     setStatus(ConnectionStatus.Connecting);
@@ -34,10 +38,15 @@ function App() {
   }, [])
 
   return (
-    <div className='App'>
-      <button onClick={connect}>connect</button>
-      <div>Status: {status}</div>
-    </div>
+    <DeroContext.Provider value={bridge}>
+      <div className='App'>
+      <h1>Dero RPC Bridge API example app</h1>
+        <button onClick={connect}>connect</button>
+        <div>Status:</div>
+        <div><i>{status}</i></div>
+        <MyComponent status={status}/>
+      </div>
+    </DeroContext.Provider>
   )
 }
 
