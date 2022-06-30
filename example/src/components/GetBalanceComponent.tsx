@@ -6,7 +6,7 @@ interface Props {
     status: ConnectionStatus
 }
 
-// MyComponent definition
+// GetBalanceComponent definition
 export default (props: Props) => {
     // Balance and error message, updated when clicking the Get Balance button
     const [balance, setBalance] = useState<string | number>('unknown');
@@ -35,11 +35,11 @@ export default (props: Props) => {
 
     // We render the component only if status is connected 
     if (props.status == ConnectionStatus.Connected) {
-        return <div className='MyComponent'>
+        return <div className='GetBalanceComponent'>
             <h2>Inner compoent</h2>
 
             <button onClick={getBalance}>Get Wallet Balance</button>
-            
+
             <div>Balance:</div>
             <div>{balance}</div>
             <div>{errorMessage}</div>
