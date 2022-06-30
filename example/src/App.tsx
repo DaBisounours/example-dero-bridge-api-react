@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
 
+// @ts-ignore
 import DeroBridgeApi from 'dero-rpc-bridge-api'
 
 
