@@ -36,7 +36,7 @@ export default (props: Props) => {
     // We render the component only if status is connected 
     if (props.status == ConnectionStatus.Connected) {
         return <div className='GetBalanceComponent'>
-            <h2>Inner compoent</h2>
+            <h2>GetBalance Component</h2>
 
             <button onClick={getBalance}>Get Wallet Balance</button>
 
