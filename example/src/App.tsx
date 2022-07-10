@@ -6,6 +6,7 @@ import './App.css'
 import DeroBridgeApi from 'dero-rpc-bridge-api'
 import React from 'react';
 import GetBalanceComponent from './components/GetBalanceComponent';
+import TransferComponent from './components/TransferComponent';
 
 // Enum to track the connection status of the bridge
 export enum ConnectionStatus {
@@ -51,7 +52,7 @@ function App() {
 
   return (
     // Pass the bridge object to the context provider
-    // The app has a title a button calling the connect callback defined earlier and a custom component defined in components/GetBalanceComponent.tsx
+    // The app has a title a button calling the connect callback defined earlier and a custom components defined in components/
     <DeroContext.Provider value={bridge}>
       <div className='App'>
         <h1>Dero RPC Bridge API example app</h1>
@@ -62,6 +63,8 @@ function App() {
         <div><i>{status}</i></div>
         
         <GetBalanceComponent status={status}/>
+        
+        <TransferComponent status={status}/>
 
       </div>
     </DeroContext.Provider>
