@@ -6,15 +6,9 @@ import './App.css'
 import DeroBridgeApi from 'dero-rpc-bridge-api'
 import React from 'react';
 import GetBalanceComponent from './components/GetBalanceComponent';
-import TransferComponent from './components/TransferComponent';
+//import TransferComponent from './components/TransferComponent';
+import { ConnectionStatus } from './utils/connection-status';
 
-// Enum to track the connection status of the bridge
-export enum ConnectionStatus {
-  NotConnected = "not connected",
-  Connected = "connected to the bridge!",
-  Connecting = "connecting...",
-  Failed = 'connection failed !'
-}
 
 // Global context variable to use all across the app
 export const DeroContext = React.createContext<DeroBridgeApi>(null);
@@ -64,7 +58,6 @@ function App() {
         
         <GetBalanceComponent status={status}/>
         
-        <TransferComponent status={status}/>
 
       </div>
     </DeroContext.Provider>
@@ -72,3 +65,5 @@ function App() {
 }
 
 export default App
+
+//<TransferComponent status={status}/>

@@ -1,5 +1,6 @@
 import { useCallback, useContext, useState } from "react"
-import { ConnectionStatus, DeroContext } from "../App";
+import { DeroContext } from "../App";
+import { ConnectionStatus } from "../utils/connection-status";
 
 // Define the props of our component
 interface Props {
