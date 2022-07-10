@@ -48,5 +48,4 @@ export default (props: Props) => {
     } else {
         return <div></div>
     }
-    
 }
